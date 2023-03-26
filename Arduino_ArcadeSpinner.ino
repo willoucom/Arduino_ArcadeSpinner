@@ -30,6 +30,11 @@
 // Spinner pulses per revolution
 #define SPINNER_PPR 600
 
+// Spinner sensitivity 
+// 1 is more sensitive 
+// 999 is less sensitive
+#define SPINNER_SENSITIVITY 15
+
 /////////////////////////////////////////////////////////////////
 
 // Pins used by encoder
@@ -55,8 +60,10 @@ const char *gp_serial = "MiSTer-A1 Spinner";
 Gamepad_ Gamepad;
 GamepadReport rep;
 
-// Default spinner position
-uint16_t drvpos = 0;
+// Default virtual spinner position
+int16_t drvpos = 0;
+// Default real spinner position
+int16_t r_drvpos = 0;
 
 // Variables for paddle_emu
 #define SP_MAX ((SPINNER_PPR*4*270UL)/360)
@@ -69,7 +76,7 @@ bool paddle_emu = 0;
 // Interrupt pins of Rotary Encoder
 void drv_proc()
 {
-  static int8_t prev;
+  static int8_t prev = drvpos;
   int8_t a = digitalRead(pinA);
   int8_t b = digitalRead(pinB);
 
@@ -78,15 +85,16 @@ void drv_proc()
 
   if(diff == 1) 
   {
-    drvpos += 1;
+    r_drvpos += 1;
     if(sp_clamp < SP_MAX) sp_clamp++;
   }
   if(diff == 3) 
   {
-    drvpos -= 1;
+    r_drvpos -= 1;
     if(sp_clamp > 0) sp_clamp--;
   }
 
+  drvpos = r_drvpos / SPINNER_SENSITIVITY;
   prev = spval;
 }
 
@@ -179,5 +187,4 @@ void loop()
     Gamepad._GamepadReport = rep;
     Gamepad.send();
   }
-
 }
