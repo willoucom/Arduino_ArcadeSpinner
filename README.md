@@ -19,6 +19,7 @@ You can activate an additional behavior by holding a button when you plug in the
 - Press Button0 (Big Left button) to enable MouseX Emulation
 - Press Button1 (Big Right button) to enable Paddle Emulation
 - Press Button2 (Small Left button) to switch device to mr.Spinner (enabling composite device on mister fpga)
+ - In mr.Spinner mode, each button press is redirected to button 1
 
 ## MisterFPGA
 

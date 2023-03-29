@@ -72,6 +72,7 @@ int32_t sp_clamp = SP_MAX/2;
 // For emulation
 bool mouse_emu = 0;
 bool paddle_emu = 0;
+bool mr_spinner_emu = 0;
 
 // Interrupt pins of Rotary Encoder
 void drv_proc()
@@ -133,6 +134,7 @@ void setup()
   // Spinner only (AKA mr.Spinner mode)
   if (!digitalRead(Button2)) {
     // Announce the device as mr.Spinner (more explanations in the readme file)
+    mr_spinner_emu = !mr_spinner_emu;
     gp_serial = "MiSTer-S1 Spinner";
   }
   
@@ -145,10 +147,14 @@ void loop()
   rep.paddle = 0;
   rep.spinner = 0;
   // Buttons
-  rep.b0 = !digitalRead(Button0);
-  rep.b1 = !digitalRead(Button1);
-  rep.b2 = !digitalRead(Button2);
-  rep.b3 = !digitalRead(Button3);
+  if (mr_spinner_emu) {
+    rep.b0 = !digitalRead(Button0) || !digitalRead(Button1) || !digitalRead(Button2) || !digitalRead(Button3);
+  } else {
+    rep.b0 = !digitalRead(Button0);
+    rep.b1 = !digitalRead(Button1);
+    rep.b2 = !digitalRead(Button2);
+    rep.b3 = !digitalRead(Button3);
+    }
 
   // spinner rotation
   static uint16_t prev = 0;
