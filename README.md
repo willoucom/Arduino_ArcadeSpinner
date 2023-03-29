@@ -7,8 +7,11 @@ The objective is to offer a feeling close to the original equipment by using com
 ![Img!](img/pic.jpg "Arcace Spinner")
 
 ## In action
-Puzz'Loop 2 with rotary controller on MisterFPGA (Demo, Without audio commentary)
+### Puzz'Loop 2 with rotary controller
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/TzKd8ytODUM/0.jpg)](http://www.youtube.com/watch?v=TzKd8ytODUM "Puzz'Loop 2 with rotary controller on MisterFPGA")
+
+### Eco Fighter / Ultimate Ecology with rotary controller
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/sb1mO-uq1ag/0.jpg)](http://www.youtube.com/watch?v=sb1mO-uq1ag "Eco Fighter / Ultimate Ecology with rotary controller on MisterFPGA")
 
 ## Usage
 
