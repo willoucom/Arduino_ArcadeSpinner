@@ -30,10 +30,11 @@
 // Spinner pulses per revolution
 #define SPINNER_PPR 600
 
-// Spinner sensitivity 
+// Spinner/Mouse sensitivity
 // 1 is more sensitive 
 // 999 is less sensitive
 #define SPINNER_SENSITIVITY 15
+#define MOUSE_SENSITIVITY 1
 
 /////////////////////////////////////////////////////////////////
 
@@ -64,6 +65,8 @@ GamepadReport rep;
 int16_t drvpos = 0;
 // Default real spinner position
 int16_t r_drvpos = 0;
+// Default virtual mouse position
+int16_t m_drvpos = 0;
 
 // Variables for paddle_emu
 #define SP_MAX ((SPINNER_PPR*4*270UL)/360)
@@ -96,6 +99,7 @@ void drv_proc()
   }
 
   drvpos = r_drvpos / SPINNER_SENSITIVITY;
+  m_drvpos = r_drvpos / MOUSE_SENSITIVITY;
   prev = spval;
 }
 
@@ -170,6 +174,10 @@ void loop()
 
   // Mouse Emulation
   if(mouse_emu) {
+    static uint16_t m_prev = 0;
+    int16_t val = ((int16_t)(m_drvpos - m_prev));
+    if(val>127) val = 127; else if(val<-127) val = -127;
+    m_prev += val;
     Mouse.move(val, 0);
   }
 
