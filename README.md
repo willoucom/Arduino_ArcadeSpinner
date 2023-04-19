@@ -4,14 +4,20 @@ This project is a modern re-creation of the spinners used in arcades, mainly for
 
 The objective is to offer a feeling close to the original equipment by using components that are easy to obtain.
 
-![Img!](img/pic.jpg "Arcace Spinner")
+![Img!](img/pic.jpg "Arcade Spinner")
 
 ## In action
+
+### Arkanoid with rotary controller
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/QnDsVMLP6zM/0.jpg)](http://www.youtube.com/watch?v=QnDsVMLP6zM "Arkanoid with rotary controller on MisterFPGA")
+
 ### Puzz'Loop 2 with rotary controller
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/TzKd8ytODUM/0.jpg)](http://www.youtube.com/watch?v=TzKd8ytODUM "Puzz'Loop 2 with rotary controller on MisterFPGA")
 
 ### Eco Fighter / Ultimate Ecology with rotary controller
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/sb1mO-uq1ag/0.jpg)](http://www.youtube.com/watch?v=sb1mO-uq1ag "Eco Fighter / Ultimate Ecology with rotary controller on MisterFPGA")
+
+
 
 ## Usage
 
@@ -53,18 +59,21 @@ You can activate an additional behavior by holding a button when you plug in the
 | Block block (world)   | Use alternatives/block block (world 910910), must use Mouse Emulation |
 | Super Breakout        | Enable paddle in controls, must use paddle emulation |
 
-### Not Working
+## Mame
 
-| Game                      | Note|
-|---                        |---| 
-| Heavy Barrel              | LS-30 joystick |
-| Ikari Warriors            | LS-30 joystick |
-| Mad Planets               | LS-30 joystick |
-| SAR - Search and Rescue   | LS-30 joystick |
-| SNK - T.N.K. III          | LS-30 joystick |
-| Time Soldiers             | LS-30 joystick |
-| Victory                   | LS-30 joystick |
-| Victory Road              | LS-30 joystick |
+You can use the controller with mame and derivative by using the controller in Mouse Emulation mode.
+
+> Note: You can define the default behavior of the controller by modifying the source code, to do this modify the default value of the variable `bool mouse_emu = 0;` to 1t which will have the effect of operating the controller in mouse mode
+
+You need to change the `dial device assignment` option in the mame settings either in mame.ini or using the GUI.
+
+### Edit mame.ini 
+```
+dial_device               mouse
+```
+### Using MAME GUI
+
+![Img!](img/mame.jpg "MAME")
 
 ## Build yourself
 
@@ -79,6 +88,8 @@ You can activate an additional behavior by holding a button when you plug in the
 
 #### Prepare the rotary encoder
 
+![Img!](img/encoder.jpg "rotary encoder")
+
 1. Remove the metal enclosure and extract the mechanism.
 2. Unsolder all wires.
 3. Solder fresh wires on GND, VCC, A and B pads.
@@ -86,7 +97,11 @@ You can activate an additional behavior by holding a button when you plug in the
 
 ### Arduino Pinout
 
+![Img!](img/arduino.jpg "Arduino")
+
 The buttons must be grounded, you can create a daisy chain to use a common GND for your 4 buttons, you can solder the buttons or use wire connectors.
+
+Bridge pad J1 to send +5v to encoder instead of 3.3v
 
 ```
 Encoder
@@ -135,3 +150,10 @@ If the device name start by MiSTer-A1 the device is considered as an arcade stic
 if (strstr(uniq, "MiSTer-A1")) input[n].quirk = QUIRK_PDSP_ARCADE;
 if (strstr(input[n].name, "MiSTer-A1")) input[n].quirk = QUIRK_PDSP_ARCADE;
 ```
+
+## Rotary encoder
+
+The rotary encoder uses a magnet to detect rotation, it translates the orientation into pulses which are then interpreted by the arduino controller.
+
+![Img!](img/magnet.jpg "Magnet view")
+![Img!](img/magnet2.jpg "Magnet controller")
