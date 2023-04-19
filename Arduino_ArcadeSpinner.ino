@@ -170,6 +170,7 @@ void loop()
   // Paddle Emulation
   if(paddle_emu) {
     rep.paddle = ((sp_clamp*255)/SP_MAX);
+    rep.spinner = 0;
   }
 
   // Mouse Emulation
@@ -179,6 +180,7 @@ void loop()
     if(val>127) val = 127; else if(val<-127) val = -127;
     m_prev += val;
     Mouse.move(val, 0);
+    rep.spinner = 0;
   }
 
   // Only report controller state if it has changed
