@@ -35,7 +35,7 @@ You can activate an additional behavior by holding a button when you plug in the
 ### Working
 
 | Game                          | Note|
-|---                            |---| 
+|---                            |--- | 
 | Arkanoid (World)              | |
 | Block Gal                     | |
 | Breakout (TTL)                | Enable spinner in controls|
@@ -49,6 +49,8 @@ You can activate an additional behavior by holding a button when you plug in the
 | Kozmik Krooz'r                | |
 | Midnight Resistance           | Use mr.Spinner mode |
 | Moonwar                       | |
+| Pong                          | Use Paddle emulation and set your player to Paddle |
+| Pop'n Bounce (NeoGeo)         | Enable Paddle in Dip settigs (Soft dip->Pop'n bounce->Controller = paddle) |
 | Puzz Loop 2                   | Enable Paddle in Service mode (System -> Operation) |
 | Tron                          | |
 | Two Tigers (tron conversion)  | |
