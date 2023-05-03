@@ -50,7 +50,7 @@ You can activate an additional behavior by holding a button when you plug in the
 | Midnight Resistance           | Use mr.Spinner mode |
 | Moonwar                       | |
 | Pong                          | Use Paddle emulation and set your player to Paddle |
-| Pop'n Bounce (NeoGeo)         | Enable Paddle in Dip settigs (Soft dip->Pop'n bounce->Controller = paddle) |
+| Pop'n Bounce (NeoGeo)         | Enable Paddle in Dip settings (Soft dip->Pop'n bounce->Controller = paddle) |
 | Puzz Loop 2                   | Enable Paddle in Service mode (System -> Operation) |
 | Tron                          | |
 | Two Tigers (tron conversion)  | |
