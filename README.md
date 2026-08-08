@@ -88,6 +88,14 @@ dial_device               mouse
 - 2 30mm button
 - Enclosure 3D printed or any box
 
+#### 3D printed enclosure
+
+You can use the provided .stl files inside the [3D Files](./3D%20Files/) folder.
+
+I suggest to print the enclosure with the flat surface on top and bottom laying on the printing bed.
+
+If you have some skills in 3D modeling, you can also use the .f3d archive which is usable with Autodesk Fusion 360.
+
 #### Prepare the rotary encoder
 
 ![Img!](img/encoder.jpg "rotary encoder")
